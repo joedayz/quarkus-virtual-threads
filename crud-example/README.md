@@ -33,3 +33,4 @@ Stop the database with:
 
 Once running, the endpoint is: http://localhost:8080.
 
+NOTA: https://abhishekvrshny.medium.com/pinning-a-pitfall-to-avoid-when-using-virtual-threads-in-java-482c5eab78a3
