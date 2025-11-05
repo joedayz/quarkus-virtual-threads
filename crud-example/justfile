@@ -1,0 +1,41 @@
+# Build and Run tests
+build:
+    mvn clean verify
+
+# Build without test
+quick:
+    mvn clean package -DskipTests
+
+# Launch dev mode
+dev:
+    mvn quarkus:dev
+
+run: quick
+    echo "Run `just stop-database` to stop the database once you are done"
+    java -jar target/quarkus-app/quarkus-run.jar
+
+start-database:
+    docker run --ulimit memlock=-1:-1 -d -it --rm=true --memory-swappiness=0 \
+        --name postgres-quarkus-demo -e POSTGRES_USER=restcrud \
+        -e POSTGRES_PASSWORD=restcrud -e POSTGRES_DB=rest-crud \
+        -p 5432:5432 postgres:15-bullseye
+
+stop-database:
+  docker stop postgres-quarkus-demo
+
+# Build the native executable
+build-native:
+    mvn package -Dnative
+
+# Run the native executable (make sure you build it first using `mvn package -Dnative` and started the database)
+run-native:
+    echo "Run 'just stop-database' to stop the database once you are done"
+    ./target/crud-example-1.0.0-SNAPSHOT-runner
+
+# Build the docker image (JVM)
+build-container-jvm:
+    mvn package -DskipTests
+    echo "Run  it with: 'docker run -it -p8080:8080 -e QUARKUS_DATASOURCE_JDBC_URL=jdbc:postgresql://docker.for.mac.localhost/rest-crud clement/virtual-threads-demos-crud-example:1.0.0-SNAPSHOT'"
+
+build-container-native:
+    mvn package -DskipTests -Dnative
