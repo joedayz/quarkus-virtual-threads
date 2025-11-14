@@ -9,7 +9,11 @@
     <packaging>pom</packaging>
 
     <properties>
-        <quarkus.version>3.7.2</quarkus.version>
+        <quarkus.version>3.13.0</quarkus.version>
+        <maven.compiler.version>3.13.0</maven.compiler.version>
+        <maven.surefire.version>3.5.1</maven.surefire.version>
+        <maven.failsafe.version>3.5.1</maven.failsafe.version>
+        <rest-assured.version>5.4.0</rest-assured.version>
     </properties>   
 
     <modules>
