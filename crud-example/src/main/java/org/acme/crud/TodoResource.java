@@ -29,7 +29,7 @@ public class TodoResource {
 	@GET
 	public List<Todo> getAll() {
 		log();
-		// pinTheCarrierThread(); // To demonstrate pinning detection
+		//pinTheCarrierThread(); // To demonstrate pinning detection
 		return Todo.listAll(Sort.by("order"));
 	}
 

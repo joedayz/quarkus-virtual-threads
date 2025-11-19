@@ -13,7 +13,7 @@
     <artifactId>kafka-example</artifactId>
 
     <properties>
-        <compiler-plugin.version>${maven.compiler.version}</compiler-plugin.version>
+        <compiler-plugin.version>3.11.0</compiler-plugin.version>
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -21,8 +21,7 @@
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
         <quarkus.platform.version>${quarkus.version}</quarkus.platform.version>
         <skipITs>true</skipITs>
-        <surefire-plugin.version>${maven.surefire.version}</surefire-plugin.version>
-        <failsafe-plugin.version>${maven.failsafe.version}</failsafe-plugin.version>
+        <surefire-plugin.version>3.0.0</surefire-plugin.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -64,7 +63,7 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>${rest-assured.version}</version>
+            <version>5.3.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -78,19 +77,19 @@
         <dependency>
             <groupId>org.mvnpm</groupId>
             <artifactId>importmap</artifactId>
-            <version>1.1.0</version>
+            <version>1.0.8</version>
         </dependency>
         <dependency>
             <groupId>org.mvnpm.at.mvnpm</groupId>
             <artifactId>vaadin-webcomponents</artifactId>
             <scope>runtime</scope>
-            <version>24.5.0</version>
+            <version>24.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.mvnpm</groupId>
             <artifactId>es-module-shims</artifactId>
             <scope>runtime</scope>
-            <version>1.10.0</version>
+            <version>1.8.2</version>
         </dependency>
     </dependencies>
     <build>
@@ -131,7 +130,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${failsafe-plugin.version}</version>
+                <version>${surefire-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
